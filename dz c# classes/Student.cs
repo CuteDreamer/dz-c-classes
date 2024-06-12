@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace dz_c__classes
 {
+
     internal class Student
     {
         private string? name;
@@ -138,6 +139,38 @@ namespace dz_c__classes
             {
                 Console.WriteLine(exam);
             }
+        }
+
+        public double GetAverageScore()       // а как иначе вычислить жертву?)))))
+        {
+            if (credits.Count == 0 && courseworks.Count == 0 && exams.Count == 0)
+            {
+                Console.WriteLine("Всё прогулял, без оценок)))))");
+                return 0;
+            }
+
+            double totalscore = 0;
+            int totalgrades = 0;
+
+            foreach (var credit in credits)
+            {
+                totalscore += credit;
+                totalgrades++;
+            }
+
+            foreach (var coursework in courseworks)
+            {
+                totalscore += coursework;
+                totalgrades++;
+            }
+
+            foreach (var exam in exams)
+            {
+                totalscore += exam;
+                totalgrades++;
+            }
+
+            return totalscore / totalgrades;
         }
     }
 }

@@ -51,6 +51,22 @@ namespace dz_c__classes
             return coursenumber;
         }
 
+        public string? Groupname
+        {
+            get { return groupname; }
+            set { groupname = value; }
+        }
+        public string? GroupSpecialization
+        {
+            get { return groupspecialization; }
+            set { groupspecialization = value; }
+        }
+        public int Coursenumber
+        {
+            get { return coursenumber; }
+            set { coursenumber = value; }
+        }
+
         public void AddStudent(Student student)
         {
             students.Add(student);
@@ -102,6 +118,33 @@ namespace dz_c__classes
             students.Remove(lowestscoringstudent);
 
             Console.WriteLine("Самый слабый изгнан!!! Теперь миром правит жируха. Покайтесь! Иначе она вас сожрёт :D");
+        }
+
+        public double GetGroupAverageScore()           // вычисляем средний балл у группы
+        {
+            if (students.Count == 0)
+            {
+                return 0;
+            }
+
+            double totalScore = 0;
+
+            foreach (var student in students)
+            {
+                totalScore += student.GetAverageScore();
+            }
+
+            return totalScore / students.Count;
+        }
+
+        public static bool operator ==(Group g1, Group g2)  // ничего более умного не пришло в голову мне
+        {
+            return g1.GetGroupAverageScore() == g2.GetGroupAverageScore();
+        }
+
+        public static bool operator !=(Group g1, Group g2)
+        {
+            return !(g1 == g2);
         }
     }
 }

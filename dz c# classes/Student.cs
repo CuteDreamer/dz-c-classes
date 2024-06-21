@@ -98,6 +98,43 @@ namespace dz_c__classes
             return phone;
         }
 
+        public string? Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string? LastName
+        {
+            get { return lastname; }
+            set { lastname = value; }
+        }
+
+        public string? Patron
+        {
+            get { return patron; }
+            set { patron = value; }
+        }
+
+        public string? Date
+        {
+            get { return date; }
+            set { date = value; }
+        }
+
+        public string? Address
+        {
+            get { return address; }
+            set { address = value; }
+        }
+
+        public string? Phone
+        {
+            get { return phone; }
+            set { phone = value; }
+        }
+
+
         public void AddCredit(int credit)
         {
             credits.Add(credit);
@@ -171,6 +208,14 @@ namespace dz_c__classes
             }
 
             return totalscore / totalgrades;
+        }
+        public static bool operator >(Student student1, Student student2)          // по смыслу мне показалось, что сравнение средних баллов 2-х студентов норм
+        {
+            return student1.GetAverageScore() > student2.GetAverageScore();
+        }
+        public static bool operator <(Student student1, Student student2)
+        {
+            return student1.GetAverageScore() < student2.GetAverageScore();
         }
     }
 }

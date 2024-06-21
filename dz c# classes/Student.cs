@@ -150,7 +150,7 @@ namespace dz_c__classes
             exams.Add(exam);
         }
 
-        public void ShowInfo()
+        public virtual void ShowInfo()
         {
             Console.WriteLine($"Имя: {GetName()}");
             Console.WriteLine($"Фамилия: {GetLastName()}");
@@ -178,7 +178,7 @@ namespace dz_c__classes
             }
         }
 
-        public double GetAverageScore()       // а как иначе вычислить жертву?)))))
+        public virtual double GetAverageScore()       // а как иначе вычислить жертву?)))))
         {
             if (credits.Count == 0 && courseworks.Count == 0 && exams.Count == 0)
             {

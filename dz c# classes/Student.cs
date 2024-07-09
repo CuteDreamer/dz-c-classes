@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace dz_c__classes
 {
 
-    internal class Student
+    internal class Student : IComparable
     {
         private string? name;
         private string? lastname;
@@ -216,6 +216,11 @@ namespace dz_c__classes
         public static bool operator <(Student student1, Student student2)
         {
             return student1.GetAverageScore() < student2.GetAverageScore();
+        }
+
+        public void SearchStud()
+        {
+            Console.WriteLine("Searching for students...");
         }
     }
 }

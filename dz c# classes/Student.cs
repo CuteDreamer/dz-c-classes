@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace dz_c__classes
 {
-
-    internal class Student : IComparable
+    internal class Student : IComparable<Student>
     {
         private string? name;
         private string? lastname;
@@ -209,6 +209,7 @@ namespace dz_c__classes
 
             return totalscore / totalgrades;
         }
+
         public static bool operator >(Student student1, Student student2)          // по смыслу мне показалось, что сравнение средних баллов 2-х студентов норм
         {
             return student1.GetAverageScore() > student2.GetAverageScore();
@@ -217,10 +218,26 @@ namespace dz_c__classes
         {
             return student1.GetAverageScore() < student2.GetAverageScore();
         }
-
-        public void SearchStud()
+        public int CompareTo(Student? other)
         {
-            Console.WriteLine("Searching for students...");
+            throw new NotImplementedException(); // реализация
+        }
+
+        public class SortStud() : IComparer<Student>
+        {
+            public int Compare(Student? x, Student? y)
+            {
+                Console.WriteLine("Сортируем по какому-то признаку");
+                return 0;
+            }
+        }
+        public class SortStud2() : IComparer<Student>
+        {
+            public int Compare(Student? x, Student? y)
+            {
+                Console.WriteLine("Сортируем по другому признаку");
+                return 0;
+            }
         }
     }
 }

@@ -218,26 +218,36 @@ namespace dz_c__classes
         {
             return student1.GetAverageScore() < student2.GetAverageScore();
         }
+
         public int CompareTo(Student? other)
         {
-            throw new NotImplementedException(); // реализация
+
+            return String.Compare(this.lastname, other.lastname);
+        }
+        public class SortByName : IComparer<Student>
+        {
+            public int Compare(Student? x, Student? y)
+            {
+                return String.Compare(x.name, y.name);
+            }
         }
 
-        public class SortStud() : IComparer<Student>
+
+        public class SortByDate : IComparer<Student>
         {
             public int Compare(Student? x, Student? y)
             {
-                Console.WriteLine("Сортируем по какому-то признаку");
-                return 0;
+                DateTime dateX = DateTime.Parse(x.date);
+                DateTime dateY = DateTime.Parse(y.date);
+                return DateTime.Compare(dateX, dateY);
             }
         }
-        public class SortStud2() : IComparer<Student>
+
+        public static void Sort(List<Student> students, IComparer<Student> comparer)
         {
-            public int Compare(Student? x, Student? y)
-            {
-                Console.WriteLine("Сортируем по другому признаку");
-                return 0;
-            }
+            students.Sort(comparer);
         }
+      
+
     }
 }

@@ -24,9 +24,13 @@
 
             mygroup.ShowAllStudents();
 
-            
 
+            List<Student> students = new List<Student>();
+
+            Student.Sort(students, new Student.SortByName());
+            Student.Sort(students, new Student.SortByDate());
 
         }
+
     }
 }

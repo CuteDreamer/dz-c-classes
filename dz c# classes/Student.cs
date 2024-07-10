@@ -243,11 +243,5 @@ namespace dz_c__classes
             }
         }
 
-        public static void Sort(List<Student> students, IComparer<Student> comparer)
-        {
-            students.Sort(comparer);
-        }
-      
-
     }
 }
